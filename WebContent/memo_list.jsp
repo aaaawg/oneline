@@ -36,5 +36,6 @@
 	con.close();
 	out.println("DB조회 성공"); 
 %>
+	<br><input type="button" value="작성" onclick="location.href='memo01.html'">
 </body>
 </html>
