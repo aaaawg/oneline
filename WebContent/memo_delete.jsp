@@ -14,32 +14,20 @@
 	String user = "root"; 
 	String passwd = "a025763"; 
 	Connection con = null;
-	String sql = "select * from oneline";
+	String sql = "delete from oneline where no=?";
 	PreparedStatement pstmt = null;
 	
 	Class.forName("com.mysql.cj.jdbc.Driver");
-	
 	con = DriverManager.getConnection(url, user, passwd); 
-	
+	int delete = Integer.parseInt(request.getParameter("delete"));
 	pstmt = con.prepareStatement(sql);
-	ResultSet rs = pstmt.executeQuery(); 
+	
+	pstmt.setInt(1,delete);
+	pstmt.executeUpdate();
 
-	while(rs.next()) {
-		int no = rs.getInt(1); 
-		String memo = rs.getString("memo"); 
-		String wdate = rs.getString(3);
-		
-		out.println("일련번호" + no + ": " + memo + "(" + wdate + ")<br>");
-	}	
-	rs.close();
 	pstmt.close();
 	con.close();
-	out.println("DB조회 성공"); 
+	response.sendRedirect("memo_list.jsp");
 %>
-	<br><input type="button" value="작성" onclick="location.href='memo01.html'">
-	<form action="memo_delete.jsp">
-		<input type="text" name="delete" placeholder="일련번호 입력">
-		<input type="submit" value="삭제">
-	</form>
 </body>
 </html>
