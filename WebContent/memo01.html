@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+	*{
+		font-family: 'Noto Sans KR', sans-serif;
+	}
+	main {
+		width: 400px;
+		height: 350px;
+		background-color: #FCD83E;
+	}
+	.memo {
+		margin: 10px;
+		border: 2px solid #ffffff;
+		background-color: rgba(255, 255, 255, 0.4);
+	}
+	form {
+		margin: 10px;
+	}
+	input[type="text"] {
+		width: 300px;
+		height: 40px;
+		font-size: 20px;
+		border: 2px solid #FDE891;
+	}
+	input[type="button"] { 
+		float: right;
+		border: none;
+		background-color: #FDE891;
+	}
+	input[type="submit"] { 
+		width: 65px;
+		height: 46px;
+		float: right;
+		border: 2px solid #ffffff;
+		border-radius: 5px;
+		background-color: #FDE891;
+	}
+	h1 {
+		text-align: center;
+		font-weight: bolder;
+		letter-spacing: 4px;
+		color: #ffffff;
+	}
+	p {
+		margin: 3px;
+		font-size: 20px;
+	}
+	#date {
+		margin-top: 10px;
+		font-size: 15px;
+	}
+</style>
+</head>
+<body>
+<main>
+<h1>memo</h1>
+<form method="post" action="memo_write.jsp"> 
+	<input type="text" name="memo"></input>
+	<input type="submit" value="등록"></input>
+</form>
+<div class="memo">
+	<p>곧 있으면 5월이다</p>
+	<p id="date">2021.04.28 13:45<input type="button" value="삭제하기"></input></p>
+</div>
+<div class="memo">
+	<p>오늘은 날씨가 좋다</p>
+	<p id="date">2021.04.26 09:21<input type="button" value="삭제하기"></input></p>
+</div>
+</main>
+</body>
+</html>
